@@ -38,14 +38,14 @@ void artAction(void){
       isDetector = false;
     }
     if(cnt<20){
-      digitalWrite(D3, HIGH);
+      digitalWrite(D3, LOW);
       cnt++;
     }else{
-      digitalWrite(D3, LOW);
+      digitalWrite(D3, HIGH);
     }
 
     if(isDetectorCatch){
-      digitalWrite(D1, HIGH);
+      digitalWrite(D1, LOW);
       initFormAction(String("isCatchedArt"));
       char cart[6] = {"abcde"};
       String c = getSSID();

@@ -195,7 +195,7 @@ void checkSettings(void){
         Module.SSID += rune;
         yield();
       }
-          digitalWrite(D1, HIGH);
+    digitalWrite(D2, HIGH);
     delay(100);
     digitalWrite(D2, LOW);
     delay(100);
@@ -246,6 +246,9 @@ void checkSettings(void){
     Serial.print("New module MAC: ");
     Serial.println(WiFi.macAddress());
     setDetectorMAC(Module.MAC);
+  }
+  if(Module.Type == TYPE_CATCHED_ART){
+    digitalWrite(D1, LOW);
   }
   EEPROM.end();
 }
@@ -315,6 +318,9 @@ void loop() {
       break;
       case TYPE_DET:
           detectorAction();
+      break;
+      case TYPE_CATCHED_ART:
+          digitalWrite(D1, LOW);  
       break;
     }
 }
