@@ -117,7 +117,6 @@ void initResponse(void) {
   </body>\
 </html>";
   yield();
-  Serial.println("yield()");
   server.send(200, "text/html", artPostForm);
 }
 
